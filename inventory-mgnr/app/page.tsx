@@ -10,7 +10,15 @@ import {
   TextField,
   Button,
 } from "@mui/material";
-import { collection, deleteDoc, doc, getDocs, getDoc, setDoc, query } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  getDoc,
+  setDoc,
+  query,
+} from "firebase/firestore";
 
 export default function Home() {
   const [inventory, setInventory] = useState([]);
@@ -138,32 +146,46 @@ export default function Home() {
             Inventory Items
           </Typography>
         </Box>
-      <Stack width={"300px"} height={"300px"} spacing={2} overflow="auto">
-        {inventory.map(({ name, quantity }) => (
-          <Box
-            key={name}
-            width="100%"
-            minHeight={"150px"}
-            display="flex"
-            alignItems={"center"}
-            justifyContent="space-between"
-            bgcolor={"#f0f0f0"}
-            padding={5}
-          >
-            <Typography variant="h3" colour="#333" textAlign={"center"}>
-              {name.charAt(0).toUpperCase() + name.slice(1)}
-            </Typography>
-            <Typography variant="h3" colour="#333" textAlign={"center"}>
-              {quantity }
-            </Typography>
-            <Button variant="contained" onClick={()=>{
-              removeItem(name)
-            }}>Remove</Button>
-          </Box>
-        ))}
-      </Stack>
+        <Stack width={"800px"} height={"300px"} spacing={2} overflow="auto">
+          {inventory.map(({ name, quantity }) => (
+            <Box
+              key={name}
+              width="100%"
+              minHeight="150px"
+              display="flex"
+              alignItems="center"
+              justifyContent="space-between"
+              bgcolor="#f0f0f0"
+              padding={5}
+            >
+              <Typography variant="h3" color="#333" textAlign="center">
+                {name.charAt(0).toUpperCase() + name.slice(1)}
+              </Typography>
+              <Typography variant="h3" color="#333" textAlign="center">
+                {quantity}
+              </Typography>
+              <Stack direction="row" spacing={2}>
+                <Button
+                  variant="contained"
+                  onClick={() => {
+                    addItem(name);
+                  }}
+                >
+                  Add
+                </Button>
+                <Button
+                  variant="contained"
+                  onClick={() => {
+                    removeItem(name);
+                  }}
+                >
+                  Remove
+                </Button>
+              </Stack>
+            </Box>
+          ))}
+        </Stack>
       </Box>
-
     </Box>
   );
 }
