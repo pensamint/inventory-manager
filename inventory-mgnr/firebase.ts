@@ -14,7 +14,7 @@ const firebaseConfig = {
   storageBucket: "inventory-mgnr.appspot.com",
   messagingSenderId: "400443468357",
   appId: "1:400443468357:web:4da783a043916d4e9b912c",
-  measurementId: "G-0Z09DK252R"
+  measurementId: "G-0Z09DK252R",
 };
 
 // Initialize Firebase
@@ -22,4 +22,4 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const firestore = getFirestore(app);
 
-export {firestore};
+export { firestore };
