@@ -10,7 +10,7 @@ import {
   TextField,
   Button,
 } from "@mui/material";
-import { collection, deleteDoc, doc, getDocs, query } from "firebase/firestore";
+import { collection, deleteDoc, doc, getDocs, getDoc, setDoc, query } from "firebase/firestore";
 
 export default function Home() {
   const [inventory, setInventory] = useState([]);
@@ -150,10 +150,10 @@ export default function Home() {
             bgcolor={"#f0f0f0"}
             padding={5}
           >
-            <Typography variant="h3" colour="#333" textAlign={"centre"}>
+            <Typography variant="h3" colour="#333" textAlign={"center"}>
               {name.charAt(0).toUpperCase() + name.slice(1)}
             </Typography>
-            <Typography variant="h3" colour="#333" textAlign={"centre"}>
+            <Typography variant="h3" colour="#333" textAlign={"center"}>
               {quantity }
             </Typography>
             <Button variant="contained" onClick={()=>{
