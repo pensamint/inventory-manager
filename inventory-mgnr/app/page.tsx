@@ -138,23 +138,32 @@ export default function Home() {
             Inventory Items
           </Typography>
         </Box>
-      </Box>
       <Stack width={"300px"} height={"300px"} spacing={2} overflow="auto">
         {inventory.map(({ name, quantity }) => (
           <Box
             key={name}
             width="100%"
             minHeight={"150px"}
-            display={"flex"}
+            display="flex"
             alignItems={"center"}
-            justifyContent={"center"}
+            justifyContent="space-between"
             bgcolor={"#f0f0f0"}
             padding={5}
           >
-            <Typography>{name}</Typography>
+            <Typography variant="h3" colour="#333" textAlign={"centre"}>
+              {name.charAt(0).toUpperCase() + name.slice(1)}
+            </Typography>
+            <Typography variant="h3" colour="#333" textAlign={"centre"}>
+              {quantity }
+            </Typography>
+            <Button variant="contained" onClick={()=>{
+              removeItem(name)
+            }}>Remove</Button>
           </Box>
         ))}
       </Stack>
+      </Box>
+
     </Box>
   );
 }
