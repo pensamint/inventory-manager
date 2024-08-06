@@ -23,7 +23,7 @@ import {
 export default function Home() {
   const [inventory, setInventory] = useState([]);
   const [open, setOpen] = useState(false);
-  const [itemName, setItemName] = useState([""]);
+  const [itemName, setItemName] = useState("");
 
   const updateInventory = async () => {
     const snapshot = query(collection(firestore, "inventory"));
@@ -109,14 +109,14 @@ export default function Home() {
               fullWidth
               value={itemName}
               onChange={(e) => {
-                setItemName([e.target.value]);
+                setItemName(e.target.value);
               }}
             />
             <Button
               variant="outlined"
               onClick={() => {
                 addItem(itemName);
-                setItemName([""]);
+                setItemName("");
                 handleClose();
               }}
             >
