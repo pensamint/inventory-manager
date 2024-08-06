@@ -109,14 +109,14 @@ export default function Home() {
               fullWidth
               value={itemName}
               onChange={(e) => {
-                setItemName(e.target.value);
+                setItemName([e.target.value]);
               }}
             />
             <Button
               variant="outlined"
               onClick={() => {
                 addItem(itemName);
-                setItemName("");
+                setItemName([""]);
                 handleClose();
               }}
             >
